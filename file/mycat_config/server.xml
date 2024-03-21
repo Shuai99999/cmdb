@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- - - Licensed under the Apache License, Version 2.0 (the "License"); 
+	- you may not use this file except in compliance with the License. - You 
+	may obtain a copy of the License at - - http://www.apache.org/licenses/LICENSE-2.0 
+	- - Unless required by applicable law or agreed to in writing, software - 
+	distributed under the License is distributed on an "AS IS" BASIS, - WITHOUT 
+	WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. - See the 
+	License for the specific language governing permissions and - limitations 
+	under the License. -->
+<!DOCTYPE server
+  SYSTEM 'server.dtd'>
+<mycat:server xmlns:mycat="http://io.mycat/">
+	<system>
+		<property name="useSqlStat">0</property>
+		  
+		<!-- 1为开启实时统计、0为关闭 -->
+		<property name="useGlobleTableCheck">0</property>
+		  
+		<!-- 1为开启全加班一致性检测、0为关闭 -->
+		<property name="txIsolation">2</property>
+		<property name="idleTimeout">60000000</property>
+		<property name="sequnceHandlerType">2</property>
+      
+		<!--  <property name="useCompression">1</property>-->
+		 
+		<!--1为开启mysql压缩协议-->
+        
+		<!--  <property name="fakeMySQLVersion">5.6.20</property>-->
+		 
+		<!--设置模拟的MySQL版本号-->
+		<!-- <property name="processorBufferChunk">40960</property> -->
+		<!-- 
+	<property name="processors">32</property> 
+	<property name="processorExecutor">32</property> 
+	 -->
+		<!--默认为type 0: DirectByteBufferPool | type 1 ByteBufferArena-->
+		<property name="processorBufferPoolType">0</property>
+		<!--默认是65535 64K 用于sql解析时最大文本长度 -->
+		<!--<property name="maxStringLiteralLength">65535</property>-->
+		<!--<property name="sequnceHandlerType">0</property>-->
+		<!--<property name="backSocketNoDelay">1</property>-->
+		<!--<property name="frontSocketNoDelay">1</property>-->
+		<!--<property name="processorExecutor">16</property>-->
+		<property name="serverPort">5066</property>
+		 
+		<property name="managerPort">6066</property>
+		 
+		<!--	<property name="idleTimeout">300000</property> <property name="bindIp">0.0.0.0</property> 
+			<property name="frontWriteQueueSize">4096</property> <property name="processors">32</property> -->
+		<!--分布式事务开关，0为不过滤分布式事务，1为过滤分布式事务（如果分布式事务内只涉及全局表，则不过滤），2为不过滤分布式事务,但是记录分布式事务日志-->
+		<property name="handleDistributedTransactions">22</property>
+		<!--
+			off heap for merge/order/group/limit      1开启   0关闭
+		-->
+		<property name="useOffHeapForMerge">1</property>
+		<!--
+			单位为m
+		-->
+		<property name="memoryPageSize">1m</property>
+		<!--
+			单位为k
+		-->
+		<property name="spillsFileBufferSize">1k</property>
+		<property name="useStreamOutput">0</property>
+		<!--
+			单位为m
+		-->
+		<property name="systemReserveMemorySize">384m</property>
+		<!--是否采用zookeeper协调切换  -->
+		<property name="useZKSwitch">true</property>
+	</system>
+	<!-- 全局SQL防火墙设置 -->
+	<firewall>
+		 
+	   
+		<whitehost>
+	  
+			<!-- <host host="10.138.41.148" user="reader"/>
+	   <host host="10.138.41.149" user="reader"/>
+	   <host host="10.138.41.150" user="reader"/>
+	   <host host="10.138.41.151" user="reader"/>
+	   <host host="10.138.41.179" user="reader"/>
+	   <host host="10.138.41.104" user="reader"/>
+	   <host host="10.138.41.125" user="reader"/>
+	   
+	   <host host="10.138.41.165" user="reader"/> -->
+	   
+		</whitehost>
+		<!--	   
+       <blacklist check="false">
+       </blacklist>
+-->
+	</firewall>
+	<!-- <user name="nycPro">
+          <property name="password">nobug</property>
+          <property name="schemas"></property>
+        </user> -->
+	<user name="yuncang">
+		<property name="password">yuncang</property>
+		<property name="schemas">YUNC_MAIN_DB,YUNC_ORDER_LES_DB,YUNC_STOCK_LES_DB</property>
+		<property name="defaultSchema">YUNC_MAIN_DB</property>
+	</user>
+        
+	<user name="22029021">
+                
+		<property name="password">5oiOU?Pet%df</property>
+                
+		<property name="schemas">YUNC_MAIN_DB,YUNC_ORDER_LES_DB,YUNC_STOCK_LES_DB</property>
+                
+		<property name="defaultSchema">YUNC_MAIN_DB</property>
+         
+	</user>
+        
+	<user name="22042378">
+                
+		<property name="password">Avz4GmBMQWPK</property>
+                
+		<property name="schemas">YUNC_MAIN_DB,YUNC_ORDER_LES_DB,YUNC_STOCK_LES_DB</property>
+                
+		<property name="defaultSchema">YUNC_MAIN_DB</property>
+         
+	</user>
+        
+	<user name="22000819">
+                
+		<property name="password">nF9*?_M5R0Yb</property>
+                
+		<property name="schemas">YUNC_MAIN_DB,YUNC_ORDER_LES_DB,YUNC_STOCK_LES_DB</property>
+                
+		<property name="defaultSchema">YUNC_MAIN_DB</property>
+         
+	</user>
+        
+	<user name="01460119">
+                
+		<property name="password">$u7+v2d$nbOR</property>
+                
+		<property name="schemas">YUNC_MAIN_DB,YUNC_ORDER_LES_DB,YUNC_STOCK_LES_DB</property>
+                
+		<property name="defaultSchema">YUNC_MAIN_DB</property>
+         
+	</user>
+        
+	<user name="21052101">
+                
+		<property name="password">0S-u4MfEA$%@</property>
+                
+		<property name="schemas">YUNC_MAIN_DB,YUNC_ORDER_LES_DB,YUNC_STOCK_LES_DB</property>
+                
+		<property name="defaultSchema">YUNC_MAIN_DB</property>
+         
+	</user>
+        
+	<user name="22019194">
+                
+		<property name="password">vHiB%ttt4gdK</property>
+                
+		<property name="schemas">YUNC_MAIN_DB,YUNC_ORDER_LES_DB,YUNC_STOCK_LES_DB</property>
+                
+		<property name="defaultSchema">YUNC_MAIN_DB</property>
+         
+	</user>
+        
+	<user name="22011345">
+                
+		<property name="password">msdUmRP3?j1a</property>
+                
+		<property name="schemas">YUNC_MAIN_DB,YUNC_ORDER_LES_DB,YUNC_STOCK_LES_DB</property>
+                
+		<property name="defaultSchema">YUNC_MAIN_DB</property>
+         
+	</user>
+        
+	<user name="19032794">
+                
+		<property name="password">5oiOU?Pet%df</property>
+                
+		<property name="schemas">YUNC_MAIN_DB</property>
+                
+		<property name="defaultSchema">YUNC_MAIN_DB</property>
+         
+	</user>
+        
+	<user name="21045432">
+                
+		<property name="password">Avz4GmBMQWPK</property>
+                
+		<property name="schemas">YUNC_MAIN_DB</property>
+                
+		<property name="defaultSchema">YUNC_MAIN_DB</property>
+         
+	</user>
+        
+	<user name="22041083">
+                
+		<property name="password">nF9*?_M5R0Yb</property>
+                
+		<property name="schemas">YUNC_MAIN_DB</property>
+                
+		<property name="defaultSchema">YUNC_MAIN_DB</property>
+         
+	</user>
+        
+	<user name="21024909">
+                
+		<property name="password">$u7+v2d$nbOR</property>
+                
+		<property name="schemas">YUNC_MAIN_DB</property>
+                
+		<property name="defaultSchema">YUNC_MAIN_DB</property>
+         
+	</user>
+        
+	<user name="98305562">
+                
+		<property name="password">0S-u4MfEA$%@</property>
+                
+		<property name="schemas">YUNC_MAIN_DB</property>
+                
+		<property name="defaultSchema">YUNC_MAIN_DB</property>
+         
+	</user>
+        
+	<user name="01508025">
+                
+		<property name="password">vHiB%ttt4gdK</property>
+                
+		<property name="schemas">YUNC_MAIN_DB</property>
+                
+		<property name="defaultSchema">YUNC_MAIN_DB</property>
+         
+	</user>
+         
+	<user name="22073472">
+                
+		<property name="password">msdUmRP3?j1a</property>
+                
+		<property name="schemas">YUNC_MAIN_DB</property>
+                
+		<property name="defaultSchema">YUNC_MAIN_DB</property>
+         
+	</user>
+         
+	<user name="22059497">
+                
+		<property name="password">h3R2hyCE2+JZ</property>
+                
+		<property name="schemas">YUNC_MAIN_DB</property>
+                
+		<property name="defaultSchema">YUNC_MAIN_DB</property>
+         
+	</user>
+         
+	<user name="21068560">
+                
+		<property name="password">M8Ys?FJcV9Qq</property>
+                
+		<property name="schemas">YUNC_MAIN_DB</property>
+                
+		<property name="defaultSchema">YUNC_MAIN_DB</property>
+         
+	</user>
+         
+         
+         
+        
+	<!--
+	<user name="xiaoluona5054">
+                <property name="password">Vs#adPt3YPK%</property>
+                <property name="schemas">YUNC_MAIN_DB</property>
+                <property name="defaultSchema">YUNC_MAIN_DB</property>
+                <property name="readOnly">true</property>
+         </user>
+	<user name="wangxiaohua7079">
+                <property name="password">XqjS$%G7fpRB</property>
+                <property name="schemas">YUNC_MAIN_DB</property>
+                <property name="defaultSchema">YUNC_MAIN_DB</property>
+                <property name="readOnly">true</property>
+         </user>
+	<user name="fuqiang7258">
+                <property name="password">PQxWdABp$^a5</property>
+                <property name="schemas">YUNC_MAIN_DB</property>
+                <property name="defaultSchema">YUNC_MAIN_DB</property>
+                <property name="readOnly">true</property>
+         </user>
+	<user name="hanjian6580">
+                <property name="password">uZ@XspYCXdBl</property>
+                <property name="schemas">YUNC_MAIN_DB</property>
+                <property name="defaultSchema">YUNC_MAIN_DB</property>
+         </user>
+	<user name="lixinying6915">
+                <property name="password">GGi4j9raUrwC</property>
+                <property name="schemas">YUNC_MAIN_DB,YUNC_ORDER_LES_DB,YUNC_STOCK_LES_DB</property>
+                <property name="defaultSchema">YUNC_MAIN_DB</property>
+		<property name="readOnly">true</property>
+        </user>
+	<user name="zhangxin3743">
+                <property name="password">zqK@h#sBIKy1</property>
+                <property name="schemas">YUNC_MAIN_DB,YUNC_ORDER_LES_DB,YUNC_STOCK_LES_DB</property>
+                <property name="defaultSchema">YUNC_MAIN_DB</property>
+		<property name="readOnly">true</property>
+        </user>
+	<user name="zhangjiyuan6897">
+                <property name="password">Yob4V8BZHzWP</property>
+                <property name="schemas">YUNC_MAIN_DB,YUNC_ORDER_LES_DB,YUNC_STOCK_LES_DB</property>
+                <property name="defaultSchema">YUNC_MAIN_DB</property>
+                <property name="readOnly">true</property>
+        </user>
+	<user name="niuyantan5626">
+                <property name="password">zcts4LHKje3A</property>
+                <property name="schemas">YUNC_MAIN_DB,YUNC_ORDER_LES_DB,YUNC_STOCK_LES_DB</property>
+                <property name="defaultSchema">YUNC_MAIN_DB</property>
+        </user>
+	<user name="yujunzheng2723">
+                <property name="password">p5w6x$IScgLu</property>
+                <property name="schemas">YUNC_MAIN_DB,YUNC_ORDER_LES_DB,YUNC_STOCK_LES_DB</property>
+                <property name="defaultSchema">YUNC_MAIN_DB</property>
+        </user>
+	<user name="jinshaowen6891">
+                <property name="password">wK62A4C4jl%p</property>
+                <property name="schemas">YUNC_MAIN_DB,YUNC_ORDER_LES_DB,YUNC_STOCK_LES_DB</property>
+                <property name="defaultSchema">YUNC_MAIN_DB</property>
+        </user>
+	<user name="lixiaonan8065">
+                <property name="password">61Feg39kShL#</property>
+                <property name="schemas">YUNC_MAIN_DB,YUNC_ORDER_LES_DB,YUNC_STOCK_LES_DB</property>
+                <property name="defaultSchema">YUNC_MAIN_DB</property>
+        </user>
+	<user name="liuzhenyu4179">
+                <property name="password">O#GvfG1xqapb</property>
+                <property name="schemas">YUNC_MAIN_DB,YUNC_ORDER_LES_DB,YUNC_STOCK_LES_DB</property>
+                <property name="defaultSchema">YUNC_MAIN_DB</property>
+        </user>
+	<user name="renjunjie4086">
+                <property name="password">C6d32!LG2HVg</property>
+                <property name="schemas">YUNC_MAIN_DB,YUNC_ORDER_LES_DB,YUNC_STOCK_LES_DB</property>
+                <property name="defaultSchema">YUNC_MAIN_DB</property>
+        </user>
+       -->
+	<user name="yuncang_bi_view">
+          
+		<property name="password">yuncang_bi_view</property>
+          
+		<property name="schemas">YUNC_MAIN_DB_Bi</property>
+          
+		<property name="defaultSchema">YUNC_MAIN_DB_Bi</property>
+          
+		<property name="readOnly">true</property>
+        
+	</user>
+	 
+    
+	<user name="yuncang_bi_reader">
+        
+		<property name="password">Ie!vJ2u7JqTX</property>
+        
+		<property name="schemas">YUNC_MAIN_DB,YUNC_ORDER_LES_DB,YUNC_STOCK_LES_DB</property>
+        
+		<property name="defaultSchema">YUNC_MAIN_DB</property>
+        
+		<property name="readOnly">true</property>
+    
+	</user>
+     
+   
+</mycat:server>

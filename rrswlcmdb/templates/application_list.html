@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <div style="margin-bottom: 10px">
+            <a class="btn btn-success" href="/application/add/">
+                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                新建项目
+            </a>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                项目列表
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>S码</th>
+                    <th>项目名称</th>
+                    <th>项目简称</th>
+                    <th>负责人</th>
+                    <th>运维</th>
+                    <th>研发</th>
+                    <th>测试</th>
+                    <th>项目状态</th>
+                    <th>创建日期</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for obj in queryset %}
+                    <tr>
+                        <td>{{ obj.application_id }}</td>
+                        <td>{{ obj.application_name }}</td>
+                        <td>{{ obj.application_short_name }}</td>
+                        <td>{{ obj.owner }}</td>
+                        <td>{{ obj.ops_owner }}</td>
+                        <td>{{ obj.dev_owner }}</td>
+                        <td>{{ obj.test_owner }}</td>
+                        <td>{{ obj.get_application_status_display }}</td>
+                        <td>{{ obj.created_time }}</td>
+                        <td>
+                            <a class="btn btn-primary btn-xs" href="/application/{{ obj.id }}/edit/">编辑</a>
+                            <a class="btn btn-danger btn-xs" href="/application/{{ obj.id }}/delete/">删除</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

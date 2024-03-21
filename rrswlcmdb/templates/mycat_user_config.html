@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <div style="margin-bottom: 10px">
+            <a class="btn btn-success" href="/mycat_user_config/mycat_user_add/">
+                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                新建MyCAT用户
+            </a>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                用户列表
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>用户名</th>
+                    <th>密码</th>
+                    <th>可访问schema</th>
+                    <th>默认schema</th>
+                    <th>权限（读写/只读）</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for obj in queryset %}
+                    <tr>
+                        <td>{{ obj.username }}</td>
+                        <td>{{ obj.password }}</td>
+                        <td>{{ obj.schemas }}</td>
+                        <td>{{ obj.defaultSchema }}</td>
+                        <td>{{ obj.readOnly }}</td>
+                        <td>
+                            <a class="btn btn-primary btn-xs" href="/mycat_user_config/{{ obj.username }}/edit/">编辑</a>
+                            <a class="btn btn-danger btn-xs" href="/mycat_user_config/{{ obj.username }}/delete/">删除</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

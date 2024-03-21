@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container">
+    <form enctype="multipart/form-data" action="" method="post">
+        {% csrf_token %}
+        <h4 style="font-family:inline-block;font-weight: 700" >将临时单号贴在输入框中，一个单号一行，格式错误导入会失败，如果失败重新粘贴导入即可</h4>
+        <textarea name="temp_data" class="form-control" cols="100" rows="10"></textarea>
+        <hr class="my-4">
+        <h4 class="mb-3">数据库名</h4>
+        <div class="my-3">
+            <div class="form-check">
+              <input id="wms" name="dbname_choice" value="wms" type="radio" class="form-check-input" required="">
+              <label class="form-check-label" for="credit">WMS</label>
+            </div>
+            <div class="form-check">
+              <input id="tms" name="dbname_choice" value="tms" type="radio" class="form-check-input" required="">
+              <label class="form-check-label" for="debit">TMS</label>
+            </div>
+            <div class="form-check">
+              <input id="oms" name="dbname_choice" value="oms" type="radio" class="form-check-input" required="">
+              <label class="form-check-label" for="debit">OMS</label>
+            </div>
+            <div class="form-check">
+              <input id="sqm" name="dbname_choice" value="sqm" type="radio" class="form-check-input" required="">
+              <label class="form-check-label" for="debit">SQM</label>
+            </div>
+            <div class="form-check">
+              <input id="cdk" name="dbname_choice" value="cdk" type="radio" class="form-check-input" required="">
+              <label class="form-check-label" for="debit">CDK</label>
+            </div>
+          </div>
+        <button type="submit" class="btn btn-primary">导 入</button>
+    </form>
+    {{ exp_message }}
+</div>
+
+{% endblock %}
