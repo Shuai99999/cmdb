@@ -71,7 +71,7 @@ def re_chdata(request):
             'Token': task_token,
         }
 
-        url = 'https://rrsoa.rrswl.com/uniedp-web/oa/flowable/processInst/page?order=desc&orderField=endTime,createDate&sumFields=&page=1&limit=100&source=done-1&formCode=&formName=&procTitle=&procName=&beginDateStr=&endDateStr=&status=&startBy='
+        url = 'https://rrsoa.rrswl.com/uniedp-web/oa/flowable/processInst/page?order=desc&orderField=endTime,createDate&sumFields=&page=1&limit=500&source=done-1&formCode=&formName=&procTitle=&procName=&beginDateStr=&endDateStr=&status=&startBy='
         done_list_url = requests.get(url=url, headers=headers)
 
         done_list = json.loads(done_list_url.text)
