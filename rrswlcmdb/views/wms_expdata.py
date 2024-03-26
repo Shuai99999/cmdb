@@ -15,7 +15,7 @@ def wms_expdata(request):
     if request.method=="POST":
         res = request.POST.get("wms_expsql", None)
         res = res.replace("\r\n", "\n")
-        with open("media/uploads/result.txt", "w") as f:
+        with open("/home/oracle/dba/bi/wms_input", "w") as f:
             f.write(str(res))
             # f.write(str("\n"))
         number_of_strings = 5
