@@ -125,7 +125,7 @@ def re_chdata(request):
                 elif '10.135.17.94' in db_name:
                     db = 'app_pr'
                 elif 'iwmsa' in db_name:
-                    db = 'iwmsa_pr'
+                    db = 'iwmsa_rac'
                 elif 'huyi' in db_name:
                     db = 'huyi'
                 elif 'kuajing' in db_name:
