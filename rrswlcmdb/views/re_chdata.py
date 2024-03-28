@@ -152,6 +152,7 @@ def re_chdata(request):
                         with open('/home/oracle/dba/prod/input', "wb") as code:
                             code.write(sql_text)
 
-    subprocess.Popen(['su', '-', 'oracle', '/home/oracle/dba/prod/chdata.sh', db], stdout=subprocess.PIPE)
-    return render(request, 're_chdata.html')
+    # subprocess.Popen(['su', '-', 'oracle', '/home/oracle/dba/prod/chdata.sh', db], stdout=subprocess.PIPE)
+    chdata_result = subprocess.check_output(['su', '-', 'oracle', '/home/oracle/dba/prod/chdata.sh', db], stdout=subprocess.PIPE).decode('utf-8')
+    return render(request, 're_chdata.html', {"chdata_result": chdata_result})
 
