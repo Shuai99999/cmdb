@@ -100,36 +100,61 @@ def re_chdata(request):
 
                 if 'cdk' in db_name and 'mysql' not in db_name:
                     db = 'cdk_pr'
+                    db_type = 'oracle'
                 elif 'rckdb' in db_name:
                     db = 'cdk_pr'
+                    db_type = 'oracle'
                 elif 'sqm' in db_name:
                     db = 'sqm_pr'
+                    db_type = 'oracle'
                 elif 'iwmspf' in db_name:
                     db = 'iwmspf_pr'
+                    db_type = 'oracle'
                 elif 'i1wms' in db_name:
                     db = 'i1wms_pr'
+                    db_type = 'oracle'
                 elif 'i2wms' in db_name:
                     db = 'i2wms_pr'
+                    db_type = 'oracle'
                 elif 'i3wms' in db_name:
                     db = 'i3wms_pr'
+                    db_type = 'oracle'
                 elif 'rrslesdb' in db_name:
                     db = 'i2wms_pr'
+                    db_type = 'oracle'
                 elif 'rrswldb' in db_name:
                     db = 'i1wms_pr'
+                    db_type = 'oracle'
                 elif 'wloms2' in db_name:
                     db = 'oms2_pr'
+                    db_type = 'oracle'
                 elif 'wloms1' in db_name:
                     db = 'oms1_pr'
+                    db_type = 'oracle'
                 elif '10.133.28.7' in db_name:
                     db = 'tms_pr'
+                    db_type = 'oracle'
                 elif '10.135.17.94' in db_name:
                     db = 'app_pr'
+                    db_type = 'oracle'
                 elif 'iwmsa' in db_name:
                     db = 'iwmsa_rac'
+                    db_type = 'oracle'
                 elif 'huyi' in db_name:
                     db = 'huyi'
+                    db_type = 'oracle'
                 elif 'kuajing' in db_name:
                     db = 'haierkuajing'
+                    db_type = 'oracle'
+                elif 'hubwms' in db_name.lower():
+                    db = 'hubwms'
+                    db_type = 'oracle'
+                elif 'rrswlhr' in db_name:
+                    db = 'rrswlhr'
+                    db_type = 'oracle'
+                elif '10.246.82.104' in db_name:
+                    db = 'iwmsdb_master'
+                    db_type = 'mysql'
                 else:
                     db = ''
 
@@ -143,16 +168,16 @@ def re_chdata(request):
 
                             attach = requests.get(attach_url)
 
-                            with open('/home/oracle/dba/prod/input', "wb") as code:
+                            with open('/home/' + db_type + '/dba/prod/input', "wb") as code:
                                 code.write(attach.content)
 
                     else:
                         sql_text = task_detail["applyRemark"]
                         sql_text = sql_text.encode()
-                        with open('/home/oracle/dba/prod/input', "wb") as code:
+                        with open('/home/' + db_type + '/dba/prod/input', "wb") as code:
                             code.write(sql_text)
 
     # subprocess.Popen(['su', '-', 'oracle', '/home/oracle/dba/prod/chdata.sh', db], stdout=subprocess.PIPE)
-    chdata_result = subprocess.check_output(['su', '-', 'oracle', '/home/oracle/dba/prod/chdata.sh', db]).decode('utf-8')
+    chdata_result = subprocess.check_output(['su', '-', db_type, '/home/' + db_type + '/dba/prod/chdata.sh', db]).decode('utf-8')
     return render(request, 're_chdata.html', {"chdata_result": chdata_result})
 
