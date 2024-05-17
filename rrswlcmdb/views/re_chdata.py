@@ -181,6 +181,7 @@ def re_chdata(request):
     try:
         chdata_result = subprocess.check_output(['su', '-', db_type, '/home/' + db_type + '/dba/prod/chdata.sh', db]).decode('utf-8')
     except subprocess.CalledProcessError as e:
-        raise RuntimeError("command '{}' return with error (code {}): {}".format(e.cmd, e.returncode, e.output))
+        # raise RuntimeError("command '{}' return with error (code {}): {}".format(e.cmd, e.returncode, e.output))
+        chdata_result = 'ERROR 1064 (42000) at line 1: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax'
     return render(request, 're_chdata.html', {"chdata_result": chdata_result})
 
