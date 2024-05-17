@@ -178,6 +178,9 @@ def re_chdata(request):
                             code.write(sql_text)
 
     # subprocess.Popen(['su', '-', 'oracle', '/home/oracle/dba/prod/chdata.sh', db], stdout=subprocess.PIPE)
-    chdata_result = subprocess.check_output(['su', '-', db_type, '/home/' + db_type + '/dba/prod/chdata.sh', db]).decode('utf-8')
+    try:
+        chdata_result = subprocess.check_output(['su', '-', db_type, '/home/' + db_type + '/dba/prod/chdata.sh', db]).decode('utf-8')
+    except subprocess.CalledProcessError as e:
+        raise RuntimeError("command '{}' return with error (code {}): {}".format(e.cmd, e.returncode, e.output))
     return render(request, 're_chdata.html', {"chdata_result": chdata_result})
 
