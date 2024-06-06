@@ -8,11 +8,15 @@ def insert_temp_data(request):
     if request.method == "POST":
         res = request.POST.get("temp_data", None)
         res = res.replace("\r\n", "\n")
-        with open("/home/oracle/dba/bi/for_insert.sql", "w") as f:
+        db = request.POST.get("dbname_choice", None)
+        dbname = db.split('_')[0]
+        dbtype = db.split('_')[1]
+
+        with open("/home/" + dbtype + "/dba/bi/for_insert.sql", "w") as f:
             f.seek(0)
             f.truncate()
             f.write(str(res))
-        dbname = request.POST.get("dbname_choice", None)
-        print(dbname)
-    subprocess.Popen(['su', '-', 'oracle', '/home/oracle/dba/bi/tmp_' + dbname + '_data.sh'], stdout=subprocess.PIPE)
+
+        # print(dbname)
+        subprocess.Popen(['su', '-', dbtype, '/home/' + dbtype + '/dba/bi/tmp_' + dbname + '_data.sh'], stdout=subprocess.PIPE)
     return render(request, 'insert_temp_data.html')
