@@ -155,6 +155,36 @@ def re_chdata(request):
                 elif '10.246.82.104' in db_name:
                     db = 'iwmsdb_master'
                     db_type = 'mysql'
+                elif 'qdr1ksfraub9id' in db_name:
+                    db = 'polardb_cdkread_exp'
+                    db_type = 'mysql'
+                elif 'm5en7lf4nppm54ngm7o' in db_name:
+                    db = 'cdk_auth_nsp_srp_dba'
+                    db_type = 'mysql'
+                elif 'v8z52br84u9zorvskoz4' in db_name:
+                    db = 'wccyr'
+                    db_type = 'mysql'
+                elif '-mysql-4897' in db_name:
+                    db = 'zlb'
+                    db_type = 'mysql'
+                elif 'kxorder' in db_name:
+                    db = 'mecvwidedba'
+                    db_type = 'mysql'
+                elif '1169-10.246.2.96-mycat-5066' in db_name:
+                    db = 'xyc_mycat96'
+                    db_type = 'mysql'
+                elif 'm5ev2c955pn291133' in db_name:
+                    db = 'wlhy'
+                    db_type = 'mysql'
+                elif '1169-10.246.82.105-mysql-4302' in db_name:
+                    db = 'srm'
+                    db_type = 'mysql'
+                elif 'haier12-kxapp.rwlb.rds.aliyuncs.com' in db_name:
+                    db = 'mecv_dba'
+                    db_type = 'mysql'
+                elif 'crm_bas_db' in db_name:
+                    db = 'crm_bas_db'
+                    db_type = 'mysql'
                 else:
                     db = ''
 
