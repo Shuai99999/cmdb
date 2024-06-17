@@ -185,6 +185,18 @@ def re_chdata(request):
                 elif 'crm_bas_db' in db_name:
                     db = 'crm_bas_db'
                     db_type = 'mysql'
+                elif '1169-10.246.2.95-mycat-5066' in db_name:
+                    db = 'xyc_mycat95_exp'
+                    db_type = 'mysql'
+                elif 'm5ei9xh1l69cg5331do' in db_name:
+                    db = 'daojia_rds'
+                    db_type = 'mysql'
+                elif 'm5e1a60v8c3hfg6df' in db_name:
+                    db = 'tms_ddzx_aliyun'
+                    db_type = 'mysql'
+                elif '10.246.82.140:4224' in db_name:
+                    db = 'diaoyunpt'
+                    db_type = 'mysql'
                 else:
                     db = ''
 
