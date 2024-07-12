@@ -18,9 +18,6 @@ def add_expdata_job(request):
         expdata_db = request.POST.get("expdata_db", None)
         expdata_sql = request.POST.get("expdata_sql", None)
         expdata_sql = expdata_sql.replace("\r\n", "\n")
-        print(expdata_db)
-        print(filename)
-        print(expdata_sql)
         with open("/home/mysql/dba/bi/auto_export/" + filename + "_input", "w") as f:
             f.write(str(expdata_sql))
             # f.write(str("\n"))
