@@ -21,6 +21,7 @@ from rrswlcmdb.views import wms_expdata
 from rrswlcmdb.views import mycat_user_config
 from rrswlcmdb.views import upload_file
 from rrswlcmdb.views import re_chdata
+from rrswlcmdb.views import add_expdata_job
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -42,4 +43,5 @@ urlpatterns = [
     path('mycat_user_config/<str:n_username>/delete/', mycat_user_config.mycat_user_delete),
     path('upload_file/', upload_file.upload_file),
     path('re_chdata/', re_chdata.re_chdata),
+    path('add_expdata_job/', add_expdata_job.add_expdata_job),
 ]
