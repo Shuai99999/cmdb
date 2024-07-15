@@ -49,4 +49,7 @@ def add_expdata_job(request):
     subprocess.Popen(
         ['su', '-', db_type, '/home/' + db_type + '/dba/bi/auto_export/add_expdata_job.sh', expdata_db, filename],
         stdout=subprocess.PIPE)
+    subprocess.Popen(
+        ['su', '-', db_type, '/home/' + db_type + '/dba/bi/auto_export/' + filename + '.sh'],
+        stdout=subprocess.PIPE)
     return render(request, 'add_expdata_job.html')
