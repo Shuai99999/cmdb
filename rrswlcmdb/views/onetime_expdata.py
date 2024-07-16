@@ -7,6 +7,7 @@ import os
 import string
 import random
 import subprocess
+import time
 
 
 def onetime_expdata(request):
@@ -51,6 +52,7 @@ def onetime_expdata(request):
         subprocess.Popen(
             ['su', '-', db_type, '/home/' + db_type + '/dba/bi/auto_export/' + filename + '.sh'],
             stdout=subprocess.PIPE)
+        time.sleep(5)
         os.remove('/home/' + db_type + '/dba/bi/auto_export/' + filename + '.sh')
         os.remove('/home/' + db_type + '/dba/bi/auto_export/' + filename + '_inputs')
         os.remove('/home/' + db_type + '/dba/bi/auto_export/' + filename + '_input')
