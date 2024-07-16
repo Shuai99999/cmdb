@@ -81,4 +81,4 @@ def onetime_expdata(request):
 
         exp_message = '您的数据已导出，请登录rrswl导数ftp，打开文件资源管理器（任意文件夹），输入地址 ftp://10.135.30.96/ 输入 用户名:' + ftpUsername + ' 密码:' + ftpPassword + '，查找文件：' + filename + '.zip，可能有多个同名文件但后缀数字不同，记得变成zip再下载'
 
-    return render(request, 'add_expdata_job.html', {"exp_message": exp_message})
+    return render(request, 'onetime_expdata.html', {"exp_message": exp_message})
