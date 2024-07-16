@@ -22,6 +22,7 @@ from rrswlcmdb.views import mycat_user_config
 from rrswlcmdb.views import upload_file
 from rrswlcmdb.views import re_chdata
 from rrswlcmdb.views import add_expdata_job
+from rrswlcmdb.views import onetime_expdata
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -44,4 +45,5 @@ urlpatterns = [
     path('upload_file/', upload_file.upload_file),
     path('re_chdata/', re_chdata.re_chdata),
     path('add_expdata_job/', add_expdata_job.add_expdata_job),
+    path('onetime_expdata/', onetime_expdata.onetime_expdata),
 ]

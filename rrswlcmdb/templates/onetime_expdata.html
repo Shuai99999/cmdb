@@ -4,12 +4,7 @@
 <div class="container">
     <form enctype="multipart/form-data" action="" method="post">
         {% csrf_token %}
-        <h4 style="font-family:inline-block;font-weight: 700" >请输入导数定时任务时间，老任务修复的不需要填这一项</h4>
-        <h4 style="font-family:inline-block;font-weight: 700" >格式，分 时 日 月 周</h4>
-        <h4 style="font-family:inline-block;font-weight: 700" >例如每周五8点执行就是，0 8 * * 5</h4>
-        <input name="expdata_crontab" class="form-control" cols="30" rows="10">
-        <br/>
-        <h4 style="font-family:inline-block;font-weight: 700" >请输入文件名，FLWID，如果是恢复原来的任务，就输入原来的名字但不要加时间后缀，例如kx_FLW20240401083669_孟繁影</h4>
+        <h4 style="font-family:inline-block;font-weight: 700" >请输入文件名，FLWID</h4>
         <input name="filename" class="form-control" cols="30" rows="10">
         <br/>
         <h4 style="font-family:inline-block;font-weight: 700" >请选择要导出的数据库地址</h4>
@@ -90,6 +85,7 @@
         <textarea name="expdata_sql" class="form-control" cols="100" rows="10"></textarea>
         <button type="submit" class="btn btn-primary">确 认</button>
     </form>
+    {{ exp_message }}
 </div>
 
 {% endblock %}
