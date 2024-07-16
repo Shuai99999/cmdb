@@ -52,7 +52,7 @@ def onetime_expdata(request):
         subprocess.Popen(
             ['su', '-', db_type, '/home/' + db_type + '/dba/bi/auto_export/' + filename + '.sh'],
             stdout=subprocess.PIPE)
-        time.sleep(5)
+        time.sleep(3)
         os.remove('/home/' + db_type + '/dba/bi/auto_export/' + filename + '.sh')
         os.remove('/home/' + db_type + '/dba/bi/auto_export/' + filename + '_inputs')
         os.remove('/home/' + db_type + '/dba/bi/auto_export/' + filename + '_input')
