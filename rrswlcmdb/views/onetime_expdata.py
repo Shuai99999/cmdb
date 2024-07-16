@@ -31,7 +31,7 @@ def onetime_expdata(request):
                        'oracle_itms_rac_exp', 'saples_exp']
 
     if request.method == "GET":
-        return render(request, "add_expdata_job.html")
+        return render(request, "onetime_expdata.html")
 
     if request.method == "POST":
         filename = request.POST.get("filename", None)
