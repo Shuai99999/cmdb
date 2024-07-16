@@ -51,9 +51,7 @@ def onetime_expdata(request):
         subprocess.Popen(
             ['su', '-', db_type, '/home/' + db_type + '/dba/bi/auto_export/' + filename + '.sh'],
             stdout=subprocess.PIPE)
-        subprocess.Popen(
-            ['rm', '-rf', '/home/' + db_type + '/dba/bi/auto_export/' + filename + '*'],
-            stdout=subprocess.PIPE)
+        os.remove('/home/' + db_type + '/dba/bi/auto_export/' + filename + '*')
         if 'oms' in expdata_db:
             ftpUsername = 'omsexp'
             ftpPassword = '7wS&$M7ffGfLdg93'
