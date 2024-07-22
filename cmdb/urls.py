@@ -20,6 +20,7 @@ from rrswlcmdb.views import index
 from rrswlcmdb.views import wms_expdata
 from rrswlcmdb.views import mycat_user_config
 from rrswlcmdb.views import upload_file
+from rrswlcmdb.views import download_file
 from rrswlcmdb.views import re_chdata
 from rrswlcmdb.views import add_expdata_job
 from rrswlcmdb.views import onetime_expdata
@@ -43,6 +44,7 @@ urlpatterns = [
     path('mycat_user_config/<str:n_username>/edit/', mycat_user_config.mycat_user_edit),
     path('mycat_user_config/<str:n_username>/delete/', mycat_user_config.mycat_user_delete),
     path('upload_file/', upload_file.upload_file),
+    path('download_file/', download_file.download_file),
     path('re_chdata/', re_chdata.re_chdata),
     path('add_expdata_job/', add_expdata_job.add_expdata_job),
     path('onetime_expdata/', onetime_expdata.onetime_expdata),
