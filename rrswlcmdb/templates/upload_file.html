@@ -4,7 +4,7 @@
 <div class="container">
     <form enctype="multipart/form-data" action="" method="post">
         {% csrf_token %}
-        <input type="file" name="myfile" />
+        <input type="file" name="myfile" multiple class=“file-loading"/>
         <br/>
         <input type="submit" value="upload" class="btn btn-primary"/>
     </form>
