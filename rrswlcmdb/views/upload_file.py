@@ -5,10 +5,6 @@ from rrswlcmdb import models
 # Create your views here.
 import os
 
-def wms_expdata(request):
-
-    return render(request, 'upload_file.html')
-
 def upload_file(request):
     if request.method=="GET":
         return render(request, "upload_file.html")
