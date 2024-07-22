@@ -5,7 +5,7 @@ from django.core.files.storage import FileSystemStorage
 # Create your views here.
 import os
 
-def download_files(request):
+def download_file(request):
     if request.method=="GET":
         return render(request, "download_file.html")
     else:
