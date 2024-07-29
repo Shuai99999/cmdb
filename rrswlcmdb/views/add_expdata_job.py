@@ -55,6 +55,6 @@ def add_expdata_job(request):
 
     if expdata_crontab:
         subprocess.Popen(
-            ['sed', '-i', '\'/####mysql dataexp end####/i\\' + expdata_crontab + 'su - ' + db_type + ' /home/' + db_type + '/dba/bi/auto_export/' + filename + '.sh\'', '/var/spool/cron/root'],
+            ['sed', '-i', '\'/####mysql dataexp end####/i\\\\' + expdata_crontab + 'su - ' + db_type + ' /home/' + db_type + '/dba/bi/auto_export/' + filename + '.sh\'', '/var/spool/cron/root'],
             stdout=subprocess.PIPE)
     return render(request, 'add_expdata_job.html')
