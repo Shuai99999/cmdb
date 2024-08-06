@@ -231,8 +231,7 @@ def re_chdata(request):
     cmd = 'nohup su - ' + db_type + ' /home/' + db_type + '/dba/prod/chdata.sh ' + db + ' > /home/' + db_type + '/dba/prod/re_chdata.log'
     res = subprocess.Popen(
         cmd, shell=True, stdout=subprocess.PIPE)
-    print(res.stdout)
     # subprocess.Popen(
     #     ['nohup', 'su', '-', db_type, '/home/' + db_type + '/dba/prod/chdata.sh', db, '>', '/home/' + db_type + '/dba/prod/re_chdata.log' ])
     chdata_result = subprocess.check_output(['cat', '/home/' + db_type + '/dba/prod/re_chdata.log']).decode('utf-8')
-    return render(request, 're_chdata.html', {"chdata_result": chdata_result})
+    return render(request, 're_chdata.html', {"chdata_result": res.stdout})
