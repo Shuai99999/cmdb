@@ -1,3 +1,5 @@
+import time
+
 from django.http import HttpResponse
 from django.contrib import messages
 from django.shortcuts import render, redirect
@@ -49,9 +51,9 @@ def add_expdata_job(request):
     subprocess.Popen(
         ['su', '-', db_type, '/home/' + db_type + '/dba/bi/auto_export/add_expdata_job.sh', expdata_db, filename],
         stdout=subprocess.PIPE)
+    time.sleep(2)
     subprocess.Popen(
-        ['su', '-', db_type, '/home/' + db_type + '/dba/bi/auto_export/' + filename + '.sh'],
-        stdout=subprocess.PIPE)
+        ['su', '-', db_type, '/home/' + db_type + '/dba/bi/auto_export/' + filename + '.sh'], stdout=subprocess.PIPE)
 
     if expdata_crontab:
         subprocess.Popen(
