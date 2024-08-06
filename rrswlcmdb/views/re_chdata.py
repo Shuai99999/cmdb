@@ -230,5 +230,5 @@ def re_chdata(request):
     # return render(request, 're_chdata.html', {"chdata_result": chdata_result})
     subprocess.check_output(
         ['nohup', 'su', '-', db_type, '/home/' + db_type + '/dba/prod/chdata.sh', db, '>' , '/home/' + db_type + '/dba/prod/re_chdata.log' ]).decode('utf-8')
-    chdata_result = subprocess.check_output('cat', '/home/' + db_type + '/dba/prod/re_chdata.log').decode('utf-8')
+    chdata_result = subprocess.check_output(['cat', '/home/' + db_type + '/dba/prod/re_chdata.log']).decode('utf-8')
     return render(request, 're_chdata.html', {"chdata_result": chdata_result})
