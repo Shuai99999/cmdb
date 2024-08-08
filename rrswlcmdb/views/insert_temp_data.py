@@ -18,5 +18,5 @@ def insert_temp_data(request):
             f.write(str(res))
 
         # print(dbname)
-        subprocess.Popen(['su', '-', dbtype, '/home/' + dbtype + '/dba/bi/tmp_' + dbname + '_data.sh'], stdout=subprocess.PIPE)
+        subprocess.Popen(['nohup', 'su', '-', dbtype, '/home/' + dbtype + '/dba/bi/tmp_' + dbname + '_data.sh'], stdout=subprocess.PIPE)
     return render(request, 'insert_temp_data.html')
