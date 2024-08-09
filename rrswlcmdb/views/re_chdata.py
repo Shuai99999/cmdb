@@ -231,4 +231,4 @@ def re_chdata(request):
     cmd = 'nohup su - ' + db_type + ' /home/' + db_type + '/dba/prod/chdata.sh ' + db + ' > ', '/tmp/re_chdata.log'
     chdata_result = subprocess.run(cmd, shell=True, stdout=subprocess.PIPE)
 
-    return render(request, 're_chdata.html', {"chdata_result": chdata_result.stdout})
+    return render(request, 're_chdata.html', {"chdata_result": chdata_result.stdout.decode('utf-8')})
