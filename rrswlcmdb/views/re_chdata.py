@@ -228,7 +228,7 @@ def re_chdata(request):
     #     # raise RuntimeError("command '{}' return with error (code {}): {}".format(e.cmd, e.returncode, e.output))
     #     chdata_result = 'ERROR 1064 (42000) at line 1: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax'
     # return render(request, 're_chdata.html', {"chdata_result": chdata_result})
-    cmd = 'nohup su - ' + db_type + ' /home/' + db_type + '/dba/prod/chdata.sh ' + db + ' > /tmp/re_chdata.log'
+    cmd = 'nohup su - ' + db_type + ' /home/' + db_type + '/dba/prod/chdata.sh ' + db + ' > /tmp/re_chdata.log 2>&1'
     chdata_result = subprocess.run(cmd, shell=True, stdout=subprocess.PIPE)
 
     return render(request, 're_chdata.html', {"chdata_result": chdata_result.stdout.decode('utf-8')})
