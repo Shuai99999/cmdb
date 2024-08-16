@@ -17,7 +17,7 @@ def ftpServer(self, *args, **options):
     handler.authorizer = authorizer
     authorizer.add_anonymous('/data/ftp/export/dbExpfiles')
     address = ('', 2121)
-    server = FTPServer(address, handler)
+    server = ThreadedFTPServer(address, handler)
     # server = ThreadedFTPServer((FTP_IP, FTP_POST), handler)
     server.serve_forever()
 
