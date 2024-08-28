@@ -29,7 +29,7 @@ def onetime_expdata(request):
                        'oracle_i2wms_exp', 'oracle_i3wms_exp', 'oracle_i4wms_exp', 'oracle_wldtm_exp',
                        'oracle_wms7001_exp', 'oracle_tms_exp', 'gps_exp', 'oracle_bms_exp', 'oracle_eam_exp',
                        'oracle_cdkbi_exp', 'oracle_vom2_exp', 'oracle_arch_tms_arch_exp', 'oracle_tms_rac_exp',
-                       'oracle_itms_rac_exp', 'saples_exp']
+                       'oracle_itms_rac_exp', 'saples_exp', 'oracle_arch_iwms_exp']
 
     if request.method == "GET":
         return render(request, "onetime_expdata.html")
