@@ -1,4 +1,5 @@
 This is a Django project I wrote to quickly handle some cumbersome tasks in my daily work.
+
 Initially, I wanted it to take on the responsibilities of CMDB. You can see that there are some places to enter system information and server information. There is a MySQL database in the background for data storage.
 
 Later, because I was too busy to maintain a real CMDB myself, it evolved into only providing these functions in the last tab "Function" page.
