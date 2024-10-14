@@ -11,6 +11,7 @@ def insert_temp_data(request):
         db = request.POST.get("dbname_choice", None)
         dbname = db.split('_')[0]
         dbtype = db.split('_')[1]
+        print(dbname, dbtype)
 
         with open("/home/" + dbtype + "/dba/bi/for_insert.sql", "w") as f:
             f.seek(0)
