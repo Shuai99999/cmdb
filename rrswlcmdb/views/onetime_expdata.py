@@ -22,7 +22,7 @@ def onetime_expdata(request):
                       'mycat_bms8066_sysdb_exp', 'mycat_htms_exp', 'mysql_kx_exp', 'mysql_ams_exp', 'mysql_xiaohao_exp',
                       'mysql_lejia_read_exp', 'mysql_kx_driver_exp', 'mysql_kx_sc_exp', 'mysql_kx_driver_wide_tab_exp',
                       'rrsmdm_exp', 'mysql_kx_caiwu_exp', 'mysql_kx_az_exp', 'mysql_erp_exp', 'mysql_yunshun_exp',
-                      'mysql_kx_zangu_exp', 'mysql_kxpt_exp', 'srm_exp', 'iwms_sysdb_exp', 'iwmsdb_exp', 'gxtms_exp',
+                      'mysql_kx_zangu_exp', 'mysql_kxpt_exp', 'srm_exp', 'zlb_exp', 'iwms_sysdb_exp', 'iwmsdb_exp', 'gxtms_exp',
                       'daojia_exp', 'xyc_mycat95_exp', 'xyc_mycat95_order_exp', 'crm_mdm_exp', 'crm_exp', 'bmg_gis_exp',
                       'i56_admin_exp']
     oracle_db_names = ['oracle_app_exp', 'oracle_cdk_exp', 'oracle_iwmsa_exp', 'oracle_iwmspf_exp', 'oracle_i1wms_exp',
