@@ -66,6 +66,9 @@ def onetime_expdata(request):
         elif 'wms' in expdata_db:
             ftpUsername = 'iwmsexp'
             ftpPassword = 'h$6m$LzBZESvwTcr'
+        elif 'zlb' in expdata_db:
+            ftpUsername = 'iwmsexp'
+            ftpPassword = 'h$6m$LzBZESvwTcr'
         elif 'cdk' in expdata_db:
             ftpUsername = 'cdkexp'
             ftpPassword = '8UytK6Z*toY5'
